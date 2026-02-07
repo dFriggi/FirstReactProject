@@ -1,0 +1,34 @@
+const Navbar = ({ onLogout }) => {
+  const handleClick = () => {
+    onLogout(null)
+  }
+
+  return (
+    <nav className="bg-gray-800 text-white p-4">
+      <div className="container mx-auto flex justify-between items-center">
+
+        <div className="text-xl font-bold">
+          <a href="#home" className="hover:text-blue-400 transition">
+            MeuApp
+          </a>
+        </div>
+
+        <ul className="flex space-x-8">
+          <li>
+            <a href="#home" className="hover:text-blue-400 transition duration-300">
+              Gerenciador
+            </a>
+          </li>
+          <li>
+            <a onClick={handleClick} href="#servicos" className="bg-blue-800 p-2 rounded-lg shadow-md hover:bg-blue-400 transition duration-300">
+              Logout
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
