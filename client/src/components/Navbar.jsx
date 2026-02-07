@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = ({ onLogout }) => {
   const handleClick = () => {
     onLogout(null)
@@ -8,16 +10,16 @@ const Navbar = ({ onLogout }) => {
       <div className="container mx-auto flex justify-between items-center">
 
         <div className="text-xl font-bold">
-          <a href="#home" className="hover:text-blue-400 transition">
+          <Link to="/" className="hover:text-blue-400 transition">
             MeuApp
-          </a>
+          </Link>
         </div>
 
         <ul className="flex space-x-8">
           <li>
-            <a href="#home" className="hover:text-blue-400 transition duration-300">
+            <Link to="/hello" className="hover:text-blue-400 transition duration-300">
               Gerenciador
-            </a>
+            </Link>
           </li>
           <li>
             <a onClick={handleClick} href="#servicos" className="bg-blue-800 p-2 rounded-lg shadow-md hover:bg-blue-400 transition duration-300">
