@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import LoginPage from './components/Login'
 import Home from './pages/Home'
 import Hello from './pages/Hello'
+import Manager from './pages/Manager'
 import { Routes, Route } from 'react-router-dom'
 
 
@@ -25,11 +26,11 @@ function App() {
         <Navbar onLogout={setCurrentLogin}/>
 
         <main className="container mx-auto p-4 md:p-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Gerenciador de Usuários</h1>
-
+          
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/hello' element={<Hello />} />
+            <Route path='/manager' element={<Manager/>}></Route>
           </Routes>
 
         </main>

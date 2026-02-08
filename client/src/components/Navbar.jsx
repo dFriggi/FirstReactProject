@@ -11,13 +11,13 @@ const Navbar = ({ onLogout }) => {
 
         <div className="text-xl font-bold">
           <Link to="/" className="hover:text-blue-400 transition">
-            MeuApp
+            Lista
           </Link>
         </div>
 
         <ul className="flex space-x-8">
           <li>
-            <Link to="/hello" className="hover:text-blue-400 transition duration-300">
+            <Link to="/manager" className="hover:text-blue-400 transition duration-300">
               Gerenciador
             </Link>
           </li>

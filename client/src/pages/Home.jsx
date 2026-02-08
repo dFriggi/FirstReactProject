@@ -21,7 +21,7 @@ function Home() {
   const [users, setUsers] = useState([])
   const [searchUsers, setSearchUsers] = useState('')
   
-  const { register, handleSubmit, formState: { errors }, reset, setValue} = useForm()
+  const { register, handleSubmit, formState: { errors }, reset} = useForm()
 
   const API_URL = 'http://localhost:5000/users'
 
@@ -120,49 +120,10 @@ function Home() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-            <div className="bg-white p-6 rounded-lg shadow-md h-fit">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                Novo Usuário
-              </h2>
-
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Nome</label>
-                  <input
-                    {...register("userName", { required: 'Nome é obrigatório' })} 
-                    type="text" 
-                    placeholder="Digite o nome..."
-                    className="text-gray-800 w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
-                  />
-                  {errors.userName &&<p className='text-red-500 text-xs'>{errors.userName.message}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Email</label>
-                  <input
-                    {...register("userEmail", { required: 'Email é obrigatório' })}
-                    type="email" 
-                    placeholder="Digite o email..."
-                    className="text-gray-800 w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                  {errors.userEmail &&<p className='text-red-500 text-xs'>{errors.userEmail.message}</p>}
-                </div>
-
-                <div className="flex gap-2 mt-2">
-                  <Button
-                    variant='ghost' 
-                    type='submit' 
-                    className='flex-1 py-2 px-4 rounded text-white transition bg-gray-800 hover:bg-gray-400'
-                  >
-                  Cadastrar
-                  </Button>
-                </div>
-              </form>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
+    <>
+    <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Lista de Usuários</h1>
+    <div className="flex justify-center w-full">
+            <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
               <h2 className="text-xl font-semibold mb-4 text-gray-700">Lista de Usuários</h2>
 
               <div className='mb-4'>
@@ -183,6 +144,7 @@ function Home() {
               )}
             </div>
     </div>
+    </>
   )
 }
 
