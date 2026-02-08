@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const { SignJWT, jwtVerify } = require('jose')
 require('dotenv').config()
 
 const userRoutes = require('./routes/userRoutes')
@@ -10,6 +11,10 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
+
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD
+const SECRET_KEY = process.env.SECRET_KEY
 
 app.use('/users', userRoutes)
 app.use('/login', loginRoutes)

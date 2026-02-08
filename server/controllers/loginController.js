@@ -27,7 +27,7 @@ exports.register = async(req, res) => {
         })
         await login.save()
 
-        return res.status(201).json(login)
+        return res.status(201)
     } catch(err) {
         res.status(500).json({ message: err })
     }
@@ -44,7 +44,7 @@ exports.login = async(req, res) => {
         const passwordCompare = bcryptjs.compareSync(req.body.password, login.password)
         if(!passwordCompare) return res.status(400).json({ message: 'Email ou senha inválidos' })
 
-        return res.status(201).json(login)
+        return res.status(200)
     } catch(err) {
         res.status(500).json({ message: err })
     }
