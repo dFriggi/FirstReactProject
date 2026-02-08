@@ -64,12 +64,12 @@ function Home() {
   }
 
   const filteredUsers = users.filter((user) => {
-     return user.name?.toLowerCase().includes(searchUsers.toLowerCase())
+     return user.name.toLowerCase().includes(searchUsers.toLowerCase())
   })
 
   const List = () => {
     const listUsers = filteredUsers.map((user) => 
-        <li key={user._id} className="flex justify-between items-center p-3 border-b border-gray-100 hover:bg-gray-50 rounded transition">
+        <li key={user._id} className="flex justify-between items-center p-3 border-b border-gray-300 hover:bg-gray-50 rounded transition">
           <div className="flex flex-col">
             <span className="font-medium text-gray-800">{user.name}</span>
             <span className="text-sm text-gray-500">{user.email}</span>
@@ -121,9 +121,9 @@ function Home() {
 
   return (
     <>
-    <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Lista de Usuários</h1>
+    <h1 className="text-3xl font-bold text-gray-800 mb-5 text-center">Lista de Usuários</h1>
     <div className="flex justify-center w-full">
-            <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+            <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md max-h-[80vh] flex flex-col">
               <h2 className="text-xl font-semibold mb-4 text-gray-700">Lista de Usuários</h2>
 
               <div className='mb-4'>
@@ -140,8 +140,16 @@ function Home() {
               {filteredUsers.length === 0 ? (
                 <p className="text-gray-500 italic">Nenhum usuário encontrado.</p>
               ) : (
-                <List />
-              )}
+
+                filteredUsers.length <= 6 ? (
+                  <div>
+                    <List />
+                  </div>
+                ) : (
+                <div className='overflow-y-scroll pr-2'>
+                  <List />
+                </div>
+              ))}
             </div>
     </div>
     </>

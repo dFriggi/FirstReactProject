@@ -25,7 +25,7 @@ function App() {
 
         <Navbar onLogout={setCurrentLogin}/>
 
-        <main className="container mx-auto p-4 md:p-8">
+        <main className="container mx-auto p-4 md:p-5">
           
           <Routes>
             <Route path='/' element={<Home />} />
